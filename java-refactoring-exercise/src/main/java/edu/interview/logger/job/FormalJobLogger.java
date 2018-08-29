@@ -50,7 +50,7 @@ public final class FormalJobLogger {
             throw new LoggerException(INVALID_CONFIGURATION);
         }
 
-        if (type == null) {
+        if ((!logTypeMap.containsValue(Boolean.TRUE)) || type == null) {
             throw new LoggerException(TYPE_NOT_SPECIFIED);
         }
 

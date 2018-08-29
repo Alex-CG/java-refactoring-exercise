@@ -14,13 +14,13 @@ public class ProperLoggerBuilder implements LoggerBuilder {
 
     @Override
     public LoggerBuilder enableLogTo(LogDestination destination) {
-        logger.enableLogTo(destination, true);
+        logger.enableLogTo(destination, Boolean.TRUE);
         return this;
     }
 
     @Override
     public LoggerBuilder enableLogType(LogType type) {
-        logger.enableLogType(type, true);
+        logger.enableLogType(type, Boolean.TRUE);
         return this;
     }
 
