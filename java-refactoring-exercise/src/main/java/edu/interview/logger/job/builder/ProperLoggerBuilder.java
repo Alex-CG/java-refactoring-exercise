@@ -29,5 +29,4 @@ public class ProperLoggerBuilder implements LoggerBuilder {
         return logger;
     }
 
-
 }

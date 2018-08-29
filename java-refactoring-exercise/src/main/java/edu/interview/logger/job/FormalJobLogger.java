@@ -16,6 +16,7 @@ import java.util.stream.Stream;
 public final class FormalJobLogger {
 
     private final static String TYPE_NOT_SPECIFIED = "Error or Warning or Message must be specified";
+    private final static String INVALID_CONFIGURATION = "Invalid configuration";
 
     private HashMap<LogDestination, Boolean> logToMap;
     private HashMap<LogType, Boolean> logTypeMap;
@@ -45,9 +46,9 @@ public final class FormalJobLogger {
             return;
         }
 
-        // add Invalid configuration validation
-//        if(Stream.of(logToMap).filter(set -> map.get(map.))){
-//        }
+        if(!logToMap.containsValue(Boolean.TRUE)) {
+            throw new LoggerException(INVALID_CONFIGURATION);
+        }
 
         if (type == null) {
             throw new LoggerException(TYPE_NOT_SPECIFIED);
