@@ -60,15 +60,15 @@ public final class FormalJobLogger {
 
         MessageLog msgLog = new MessageLog(message, type);
 
-        if(logToMap.get(LogDestination.FILE)) {
+        if (logToMap.get(LogDestination.FILE)) {
             writeLogInFile(msgLog, dbParams.get("logFileFolder").toString());
         }
 
-        if(logToMap.get(LogDestination.CONSOLE)) {
+        if (logToMap.get(LogDestination.CONSOLE)) {
             printInConsole(msgLog);
         }
 
-        if(logToMap.get(LogDestination.DATABASE)) {
+        if (logToMap.get(LogDestination.DATABASE)) {
             saveLogInDB(msgLog, dbParams);
         }
 
