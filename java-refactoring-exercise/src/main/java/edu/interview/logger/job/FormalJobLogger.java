@@ -1,5 +1,9 @@
 package edu.interview.logger.job;
 
+import edu.interview.logger.job.enums.LogDestination;
+import edu.interview.logger.job.enums.LogType;
+import edu.interview.logger.job.exception.LoggerException;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -40,13 +44,13 @@ public final class FormalJobLogger {
         logTypeMap.put(type, enable);
     }
 
-    public void logMessage(String message, LogType type) throws Exception {
+    public void logMessage(String message, LogType type) throws LoggerException {
         message = Objects.toString(message, "").trim();
         if (message.isEmpty()) {
             return;
         }
 
-        if(!logToMap.containsValue(Boolean.TRUE)) {
+        if (!logToMap.containsValue(Boolean.TRUE)) {
             throw new LoggerException(INVALID_CONFIGURATION);
         }
 
@@ -92,7 +96,7 @@ public final class FormalJobLogger {
             Connection conn = createConnection(dbParams);
             Statement stmt = conn.createStatement())
         {
-            stmt.executeUpdate("insert into Log_Values('" + msgLog.toString() + "', " + msgLog.getType() + ")");
+            stmt.executeUpdate("insert into Log_Values('" + msgLog.toString() + "', " + msgLog.getType().getType() + ")");
         } catch (SQLException e) {
             e.printStackTrace();
         }

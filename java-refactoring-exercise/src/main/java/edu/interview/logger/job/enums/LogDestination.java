@@ -1,4 +1,4 @@
-package edu.interview.logger.job;
+package edu.interview.logger.job.enums;
 
 public enum LogDestination {
 

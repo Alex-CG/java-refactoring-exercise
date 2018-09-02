@@ -1,8 +1,8 @@
 package edu.interview.logger.job.builder;
 
 import edu.interview.logger.job.FormalJobLogger;
-import edu.interview.logger.job.LogDestination;
-import edu.interview.logger.job.LogType;
+import edu.interview.logger.job.enums.LogDestination;
+import edu.interview.logger.job.enums.LogType;
 
 public class ProperLoggerBuilder implements LoggerBuilder {
 
@@ -13,13 +13,13 @@ public class ProperLoggerBuilder implements LoggerBuilder {
     }
 
     @Override
-    public LoggerBuilder enableLogTo(LogDestination destination) {
+    public LoggerBuilder withLogTo(LogDestination destination) {
         logger.enableLogTo(destination, Boolean.TRUE);
         return this;
     }
 
     @Override
-    public LoggerBuilder enableLogType(LogType type) {
+    public LoggerBuilder withLogType(LogType type) {
         logger.enableLogType(type, Boolean.TRUE);
         return this;
     }
